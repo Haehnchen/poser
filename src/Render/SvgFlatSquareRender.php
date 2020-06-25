@@ -11,15 +11,12 @@
 
 namespace PUGX\Poser\Render;
 
-use PUGX\Poser\Badge;
-
 /**
- * Class SvgGenerator
+ * Class SvgFlatGenerator
  *
- * @author Claudio D'Alicandro <claudio.dalicandro@gmail.com>
  * @author Giulio De Donato <liuggio@gmail.com>
  */
-class SvgRender extends LocalSvgRenderer
+class SvgFlatSquareRender extends LocalSvgRenderer
 {
     /**
      * A list of all supported formats.
@@ -28,11 +25,11 @@ class SvgRender extends LocalSvgRenderer
      */
     public function supportedFormats()
     {
-        return array('plastic');
+        return array('flat-square');
     }
 
     protected function getTemplateName()
     {
-        return 'plastic';
+        return 'flat-square';
     }
 }

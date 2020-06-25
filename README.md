@@ -1,24 +1,29 @@
 PHP badges poser
 ================
 
-This is a php library that creates badges like ![badge-poser](badge-poser.svg) and ![I'm a badge](i_m-badge.svg) and ![dark](today-dark.svg),
+This is a php library that creates badges like ![Badge Poser](https://cdn.rawgit.com/badges/poser/master/badge-poser.svg) and ![I'm a badge](https://cdn.rawgit.com/badges/poser/master/i_m-badge.svg) and ![dark](https://cdn.rawgit.com/badges/poser/master/today-dark.svg),
 according to [Shields specification](https://github.com/badges/shields#specification).
 
 This library is used by https://poser.pugx.org
 
 [![Latest Stable Version](https://poser.pugx.org/badges/poser/version.svg)](https://packagist.org/packages/badges/poser) [![Latest Unstable Version](https://poser.pugx.org/badges/poser/v/unstable.svg)](//packagist.org/packages/badges/poser) [![Total Downloads](https://poser.pugx.org/badges/poser/downloads.svg)](https://packagist.org/packages/badges/poser)
+[![Build Status](https://travis-ci.org/badges/poser.svg?branch=master)](https://travis-ci.org/badges/poser)
 
+## Dependencies
+
+* PHP 5.3 or higher
+* GD extension
 
 ## Use as command
 
 #### 1. Create a project
 
 ``` bash
-$ composer create-project badges/poser ~0.1
+$ composer create-project badges/poser ~1.2
 $ ln -s poser/bin/poser /usr/local/bin/poser
 ```
 
-#### 2. lunch the command
+#### 2. Launch the command
 
 Create an image
 
@@ -32,7 +37,7 @@ Flush an image
 
 #### 1. Add to composer
 
-`composer require badge/poser ~0.1`
+`composer require badges/poser ~1.2`
 
 #### 2. Use in your project as lib
 
@@ -45,7 +50,7 @@ Flush an image
 
     echo $poser->generate('license', 'MIT', '428F7E', 'plastic');
     // or
-    echo $poser->generateFromURI('license-MIT-428F7E.svg');
+    echo $poser->generateFromURI('license-MIT-428F7E.plastic');
     // or
     $image = $poser->generate('license', 'MIT', '428F7E', 'plastic');
 
@@ -95,8 +100,24 @@ composer install
 - Then run behat:
 
 ``` bash
-./bin/behat run
+./bin/behat
 ```
+
+## Using Docker
+
+We provide a `docker-compose.yml.dist` file to allow you to run tests in a Docker container.
+
+```bash
+cp docker-compose.yml.dist docker-compose.yml
+docker-compose up -d
+docker-compose exec fpm composer install
+docker-compose exec fpm bin/phpspec run --format=pretty
+docker-compose exec fpm bin/behat
+```
+
+The provided Docker compose file is for a PHP 7.1 environment, but you can modifiy it to use PHP 5.6.
+
+See https://store.docker.com/community/images/jmleroux/fpm/tags
 
 ## License
 

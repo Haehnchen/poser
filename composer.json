@@ -23,20 +23,23 @@
         "psr-4": { "PUGX\\Poser\\": "src/" }
     },
     "require": {
-        "symfony/console": "~2"
+        "php": ">=5.3",
+        "ext-gd": "*",
+        "symfony/console": "~2.0|~3.0|~4.0"
     },
     "require-dev": {
-        "phpspec/phpspec": "dev-master",
-        "behat/behat": "dev-master"
+        "phpspec/phpspec": "^2.5",
+        "behat/behat": "^3.4",
+        "friendsofphp/php-cs-fixer": "@stable",
+        "coduo/phpspec-data-provider-extension": "^1.0"
     },
     "config": {
         "bin-dir": "bin"
     },
     "bin": ["bin/poser"],
-    "minimum-stability": "dev",
     "extra": {
         "branch-alias": {
-            "dev-master": "1.0.x-dev"
+            "dev-master": "1.4.x-dev"
         }
     }
 }
